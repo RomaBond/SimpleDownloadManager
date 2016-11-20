@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		222D436C1DE22C38000A79DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D436B1DE22C38000A79DD /* AppDelegate.swift */; };
+		222D436E1DE22C38000A79DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D436D1DE22C38000A79DD /* ViewController.swift */; };
+		222D43711DE22C38000A79DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222D436F1DE22C38000A79DD /* Main.storyboard */; };
+		222D43741DE22C38000A79DD /* SimpleDM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 222D43721DE22C38000A79DD /* SimpleDM.xcdatamodeld */; };
+		222D43761DE22C38000A79DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222D43751DE22C38000A79DD /* Assets.xcassets */; };
+		222D43791DE22C38000A79DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222D43771DE22C38000A79DD /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		222D43681DE22C38000A79DD /* SimpleDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		222D436B1DE22C38000A79DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		222D436D1DE22C38000A79DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		222D43701DE22C38000A79DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		222D43731DE22C38000A79DD /* SimpleDM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleDM.xcdatamodel; sourceTree = "<group>"; };
+		222D43751DE22C38000A79DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		222D43781DE22C38000A79DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		222D437A1DE22C38000A79DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		222D43651DE22C37000A79DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		222D435F1DE22C37000A79DD = {
+			isa = PBXGroup;
+			children = (
+				222D436A1DE22C38000A79DD /* SimpleDM */,
+				222D43691DE22C38000A79DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		222D43691DE22C38000A79DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				222D43681DE22C38000A79DD /* SimpleDM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		222D436A1DE22C38000A79DD /* SimpleDM */ = {
+			isa = PBXGroup;
+			children = (
+				222D436B1DE22C38000A79DD /* AppDelegate.swift */,
+				222D436D1DE22C38000A79DD /* ViewController.swift */,
+				222D436F1DE22C38000A79DD /* Main.storyboard */,
+				222D43751DE22C38000A79DD /* Assets.xcassets */,
+				222D43771DE22C38000A79DD /* LaunchScreen.storyboard */,
+				222D437A1DE22C38000A79DD /* Info.plist */,
+				222D43721DE22C38000A79DD /* SimpleDM.xcdatamodeld */,
+			);
+			path = SimpleDM;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		222D43671DE22C37000A79DD /* SimpleDM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 222D437D1DE22C38000A79DD /* Build configuration list for PBXNativeTarget "SimpleDM" */;
+			buildPhases = (
+				222D43641DE22C37000A79DD /* Sources */,
+				222D43651DE22C37000A79DD /* Frameworks */,
+				222D43661DE22C37000A79DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleDM;
+			productName = SimpleDM;
+			productReference = 222D43681DE22C38000A79DD /* SimpleDM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		222D43601DE22C37000A79DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Roma;
+				TargetAttributes = {
+					222D43671DE22C37000A79DD = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 222D43631DE22C37000A79DD /* Build configuration list for PBXProject "SimpleDM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 222D435F1DE22C37000A79DD;
+			productRefGroup = 222D43691DE22C38000A79DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				222D43671DE22C37000A79DD /* SimpleDM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		222D43661DE22C37000A79DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222D43791DE22C38000A79DD /* LaunchScreen.storyboard in Resources */,
+				222D43761DE22C38000A79DD /* Assets.xcassets in Resources */,
+				222D43711DE22C38000A79DD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		222D43641DE22C37000A79DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222D43741DE22C38000A79DD /* SimpleDM.xcdatamodeld in Sources */,
+				222D436E1DE22C38000A79DD /* ViewController.swift in Sources */,
+				222D436C1DE22C38000A79DD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		222D436F1DE22C38000A79DD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				222D43701DE22C38000A79DD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		222D43771DE22C38000A79DD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				222D43781DE22C38000A79DD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		222D437B1DE22C38000A79DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		222D437C1DE22C38000A79DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		222D437E1DE22C38000A79DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimpleDM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Sam.SimpleDM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		222D437F1DE22C38000A79DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimpleDM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Sam.SimpleDM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		222D43631DE22C37000A79DD /* Build configuration list for PBXProject "SimpleDM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222D437B1DE22C38000A79DD /* Debug */,
+				222D437C1DE22C38000A79DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		222D437D1DE22C38000A79DD /* Build configuration list for PBXNativeTarget "SimpleDM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222D437E1DE22C38000A79DD /* Debug */,
+				222D437F1DE22C38000A79DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		222D43721DE22C38000A79DD /* SimpleDM.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				222D43731DE22C38000A79DD /* SimpleDM.xcdatamodel */,
+			);
+			currentVersion = 222D43731DE22C38000A79DD /* SimpleDM.xcdatamodel */;
+			path = SimpleDM.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 222D43601DE22C37000A79DD /* Project object */;
+}
