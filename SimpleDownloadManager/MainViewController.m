@@ -104,7 +104,7 @@
    
     BOOL isEditing = !(self.table.editing);
     [self.table setEditing:isEditing animated:TRUE];
-   
+    [sender setTitle: isEditing ? @"Done" : @"Edit" ];
 }
 
 
