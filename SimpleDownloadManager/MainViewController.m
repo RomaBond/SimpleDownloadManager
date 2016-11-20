@@ -101,9 +101,10 @@
 
 
 - (IBAction)editAction:(UIBarButtonItem *)sender {
+   
     BOOL isEditing = !(self.table.editing);
     [self.table setEditing:isEditing animated:TRUE];
-    self.editButton.title = isEditing ? @"Done" : @"Edit";
+   
 }
 
 
