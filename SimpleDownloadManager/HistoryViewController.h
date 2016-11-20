@@ -10,5 +10,6 @@
 
 @interface HistoryViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *table;
+- (IBAction)editAction:(UIBarButtonItem *)sender;
 @property (strong, nonatomic)  NSMutableArray * downloadInfo;
 @end

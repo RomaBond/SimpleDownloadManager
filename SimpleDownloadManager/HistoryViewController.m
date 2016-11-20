@@ -33,6 +33,7 @@
     NSManagedObjectContext * managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"DownloadEntity"];
     self.downloadInfo = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy ];
+
     [self.table reloadData];
 }
 
@@ -41,7 +42,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+#pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -83,6 +84,10 @@
     if(editingStyle == UITableViewCellEditingStyleDelete)
     {
         [context deleteObject: [self.downloadInfo objectAtIndex:indexPath.row]];
+        NSError *error = nil;
+        if(![context save:&error]){
+            NSLog(@"Unresolved error: %@, %@", error, [error userInfo]);
+        }
     }
     
     [self.downloadInfo removeObjectAtIndex:indexPath.row];
@@ -90,4 +95,11 @@
 }
 
 
+#pragma mark - Action
+- (IBAction)editAction:(UIBarButtonItem *)sender {
+    
+    BOOL isEditing = !(self.table.editing);
+    [self.table setEditing:isEditing animated:TRUE];
+    [sender setTitle: isEditing ? @"Done" : @"Edit" ];
+    }
 @end

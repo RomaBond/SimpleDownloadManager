@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1c-eU-aZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="267.5" y="-43.354999999999997"/>
+            <point key="canvasLocation" x="854.5" y="-43.5"/>
         </scene>
         <!--Download-->
         <scene sceneID="mbM-7h-TmW">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7w-IW-i80" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-224.5" y="-43.5"/>
+            <point key="canvasLocation" x="362.5" y="-43.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CQD-vp-OVr">
@@ -212,12 +212,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="wX8-Bh-7ye" kind="relationship" relationship="viewControllers" id="ULT-4Z-TVQ"/>
-                        <segue destination="nbK-QV-0o8" kind="relationship" relationship="viewControllers" id="kxX-xx-0SW"/>
+                        <segue destination="h6j-Ef-oL5" kind="relationship" relationship="viewControllers" id="kxX-xx-0SW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4W-B9-531" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1289.375" y="-43.354999999999997"/>
+            <point key="canvasLocation" x="-702.5" y="-43.5"/>
         </scene>
         <!--History-->
         <scene sceneID="AUq-95-jJz">
@@ -240,7 +240,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="imn-7i-sKY" id="sKX-Ur-ngO">
-                                            <frame key="frameInset" width="375" height="109.5"/>
+                                            <frame key="frameInset" width="375" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOC-HM-iEu">
@@ -256,20 +256,20 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Finished download:">
                                                             <attributes>
-                                                                <color key="NSColor" red="1" green="0.88795530769999997" blue="0.0096114250759999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="NSColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="14" name="ComicSansMS-Bold"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB3-RP-tbb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TB3-RP-tbb">
                                                     <frame key="frameInset" minX="8" minY="38" width="351" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Start download:">
                                                             <attributes>
-                                                                <color key="NSColor" red="1" green="0.88795530769999997" blue="0.0096114250759999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="NSColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="14" name="ComicSansMS-Bold"/>
                                                             </attributes>
                                                         </fragment>
@@ -280,7 +280,7 @@
                                                     <frame key="frameInset" minX="230" width="123" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.3165467381477356" green="0.86519342660903931" blue="0.25433832406997681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -302,10 +302,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="olQ-mB-am9"/>
-                    <navigationItem key="navigationItem" title="History" id="iTE-nD-SCE">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="PQ6-CG-eyV">
+                    <navigationItem key="navigationItem" title="History" id="cMF-rC-Vjx">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="oJ0-bP-YBF">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editAction:" destination="nbK-QV-0o8" id="I5R-ck-OSV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -315,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFB-GM-sur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2221.5" y="366.5"/>
+            <point key="canvasLocation" x="-1634.5" y="366.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pwY-ZC-H4K">
@@ -335,7 +337,27 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgB-xx-qSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-729.375" y="-43.354999999999997"/>
+            <point key="canvasLocation" x="-142.5" y="-43.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MPV-0c-FAX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h6j-Ef-oL5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="olQ-mB-am9"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="QCG-8H-7it">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nbK-QV-0o8" kind="relationship" relationship="rootViewController" id="VXI-4w-NOp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2PG-L0-OAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2221.5" y="366.5"/>
         </scene>
     </scenes>
     <resources>

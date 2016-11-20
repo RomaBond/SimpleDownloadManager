@@ -99,7 +99,7 @@
     
 }
 
-
+#pragma mark - Action
 - (IBAction)editAction:(UIBarButtonItem *)sender {
    
     BOOL isEditing = !(self.table.editing);

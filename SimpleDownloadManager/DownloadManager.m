@@ -6,12 +6,15 @@
 //  Copyright © 2016 Roma. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import <CoreData/NSManagedObject.h>
 #import "DownloadManager.h"
 #import "DownloadFile.h"
 #import "AppDelegate.h"
-#import <UIKit/UIKit.h>
 
-@interface DownloadManager () <NSURLSessionDelegate>
+
+@interface DownloadManager () <NSURLSessionDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSURLSession *session;
 @end
@@ -89,6 +92,12 @@
     [downloadInfo setValue:file.dateStartDownload forKey:@"dateStartDownload"];
     [downloadInfo setValue:file.dateCompletDownload forKey:@"dateCompletedDownload"];
     [downloadInfo setValue:file.statusCompleted forKey:@"status"];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
     
 }
 
