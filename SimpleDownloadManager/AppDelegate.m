@@ -16,9 +16,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+   
+    
+    _mainContext = self.persistentContainer.viewContext;
     return YES;
 }
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
+{
+    self.backgroundTransferCompletionHandler = completionHandler;
+}
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

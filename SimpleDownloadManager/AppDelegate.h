@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-
+#import <UserNotifications/UserNotifications.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
-
+@property (readonly, strong) NSManagedObjectContext * mainContext;
 - (void)saveContext;
+@property (nonatomic, copy) void(^backgroundTransferCompletionHandler)();
+
+
 
 
 @end
