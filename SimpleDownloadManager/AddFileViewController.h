@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property (weak, nonatomic) MainViewController* mainViewController;
+
 - (IBAction)doneAction:(id)sender;
 
 @end
