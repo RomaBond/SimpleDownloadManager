@@ -17,7 +17,7 @@ typedef void(^downloadTimeBlock)(NSString* time);
 
 @property (strong, nonatomic) NSURLSessionDownloadTask *downloadTask;
 
-@property (strong, nonatomic) NSString  *fileName;
+@property (strong, nonatomic) NSString  *titleName;
 @property (strong, nonatomic) NSURL     *url;
 @property (strong, nonatomic) NSDate    *dateStartDownload;
 @property (strong, nonatomic) NSDate    *dateCompletDownload;
@@ -28,6 +28,6 @@ typedef void(^downloadTimeBlock)(NSString* time);
 @property (copy,nonatomic) isCompletedDownloadingBlock isCompletedDownloadingBlock;
 @property (copy,nonatomic) downloadTimeBlock downloadTimeBlock;
 
--(instancetype) initWithFileName:(NSString*)fileName
+-(instancetype) initWithTitleName:(NSString*)titleName
                        urlString:(NSString*)urlString;
 @end

@@ -53,10 +53,10 @@
 
 
 -(void) addDownloadFileForUrl:(NSString *)urlString
-                     withName:(NSString *)fileName
+                     withName:(NSString *)titleName
 {
     
-    DownloadFile *file = [[DownloadFile alloc] initWithFileName:fileName
+    DownloadFile *file = [[DownloadFile alloc] initWithTitleName:titleName
                                                       urlString:urlString];
     file.dateStartDownload = [NSDate date];
     
@@ -88,7 +88,7 @@
     
     NSManagedObject * downloadInfo = [NSEntityDescription insertNewObjectForEntityForName:@"DownloadEntity" inManagedObjectContext:context];
     
-    [downloadInfo setValue:file.fileName forKey:@"name"];
+    [downloadInfo setValue:file.titleName forKey:@"name"];
     [downloadInfo setValue:file.dateStartDownload forKey:@"dateStartDownload"];
     [downloadInfo setValue:file.dateCompletDownload forKey:@"dateCompletedDownload"];
     [downloadInfo setValue:file.statusCompleted forKey:@"status"];
@@ -155,7 +155,7 @@ DownloadFile * file = [self getFileForTaskIndetifier:downloadTask.taskIdentifier
         CGFloat progress = (CGFloat)totalBytesWritten / (CGFloat)totalBytesExpectedToWrite;
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            NSLog(@"Progres # %f.2 #, Name:%@ ***",progress, file.fileName );
+            NSLog(@"Progres # %f.2 #, Name:%@ ***",progress, file.titleName );
             NSString* totalMbWritten = [self convertSizeToMB:totalBytesWritten];
             NSString* totalMbExpectedToWrite = [self convertSizeToMB:totalBytesExpectedToWrite];
            if(file.progressBlock)

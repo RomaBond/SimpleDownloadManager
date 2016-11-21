@@ -29,19 +29,23 @@
 }
 
 - (IBAction)startOrPauseDownloadButton:(UIButton *)sender {
+    sender.enabled = NO;
+    self.pauseButton.enabled = YES;
     [self.downloadManager startForIndex:(self.index)];
  
 }
 
 
-- (IBAction)stopDownloadButton:(UIButton *)sender {
+- (IBAction)pauseDownloadButton:(UIButton *)sender {
+    sender.enabled = NO;
+    self.downloadButton.enabled = YES;
     [self.downloadManager pauseForIndex:(self.index)];
 }
 
 -(void) showInfo
 {
     DownloadFile *file=[self.downloadManager.downloadFiles objectAtIndex:self.index];
-    self.titleName.text = file.fileName;
+    self.titleName.text = file.titleName;
     
     [self.downloadManager downlodInfoForIndex:self.index
      
@@ -58,14 +62,15 @@
                        
         if(isCompleted)
             {
-                self.downloadProgress.hidden = YES;
                 self.progressLable.text = @"Ready";
             }
                        else
                        {
                          self.progressLable.text = @"Error";
                        }
-                       
+        self.downloadProgress.hidden = YES;
+        self.downloadButton.enabled =NO;
+        self.pauseButton.enabled = NO;
                    }];
 }
 

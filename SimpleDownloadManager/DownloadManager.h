@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *downloadFiles;
 @property (readonly,nonatomic)  NSInteger maxDownloadQuantity ;
 -(void) addDownloadFileForUrl:(NSString *)urlString
-                     withName:(NSString *)fileName;
+                     withName:(NSString *)titleName;
 
 -(void) downlodInfoForIndex:(NSInteger) index
               progressBlock:(void(^)(CGFloat progress, NSString* write, NSString* total))progressBlock

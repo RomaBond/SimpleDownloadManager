@@ -10,6 +10,8 @@
 #import "DownloadFile.h"
 #import "DownloadManager.h"
 @interface CustomeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *progressLable;
 @property (weak, nonatomic) IBOutlet UILabel *titleName;
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
@@ -24,7 +26,7 @@
 -(void) showInfo;
 
 - (IBAction)startOrPauseDownloadButton:(UIButton *)sender;
-- (IBAction)stopDownloadButton:(UIButton *)sender;
+- (IBAction)pauseDownloadButton:(UIButton *)sender;
 
 
 @end

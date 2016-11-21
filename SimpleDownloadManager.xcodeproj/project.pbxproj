@@ -98,9 +98,6 @@
 				2228BEF71DD5F49900DFD76E /* AppDelegate.h */,
 				2228BEF81DD5F49900DFD76E /* AppDelegate.m */,
 				2228BEFD1DD5F49900DFD76E /* Main.storyboard */,
-				2228BF031DD5F49900DFD76E /* Assets.xcassets */,
-				2228BF051DD5F49900DFD76E /* LaunchScreen.storyboard */,
-				2228BF081DD5F49900DFD76E /* Info.plist */,
 				2228BF001DD5F49900DFD76E /* SimpleDownloadManager.xcdatamodeld */,
 				22FDC6F31DDE53FF00E340F4 /* SelfPlay.png */,
 				22FDC6F41DDE53FF00E340F4 /* SelfPause.png */,
@@ -112,6 +109,9 @@
 		2228BEF41DD5F49900DFD76E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2228BF031DD5F49900DFD76E /* Assets.xcassets */,
+				2228BF051DD5F49900DFD76E /* LaunchScreen.storyboard */,
+				2228BF081DD5F49900DFD76E /* Info.plist */,
 				2228BEF51DD5F49900DFD76E /* main.m */,
 			);
 			name = "Supporting Files";

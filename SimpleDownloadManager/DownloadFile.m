@@ -11,13 +11,13 @@
 @implementation DownloadFile
 
 
--(instancetype) initWithFileName:(NSString*)fileName
+-(instancetype) initWithTitleName:(NSString*)titleName
                        urlString:(NSString*)urlString;
 {
     
         self = [super init];
         if (self) {
-            self.fileName  = fileName;
+            self.titleName  = titleName;
             self.url       = [NSURL URLWithString:urlString];
         }
     return self;
