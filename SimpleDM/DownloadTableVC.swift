@@ -8,8 +8,22 @@
 
 import UIKit
 
-class DownloadTableVC: UITableViewController {
 
+
+
+class DownloadTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+
+    let URL = "http://cdimage.debian.org/debian-cd/8.6.0/amd64/iso-cd/debian-8.6.0-amd64-CD-1.iso"
+    let URL2 = "http://cdimage.debian.org/debian-cd/8.6.0/amd64/iso-dvd/debian-8.6.0-amd64-DVD-1.iso"
+    let URL3 = "https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwid-afura7QAhVJVSwKHUSjAFoQFggZMAA&url=https%3A%2F%2Fwww.tutorialspoint.com%2Fios%2Fios_tutorial.pdf&usg=AFQjCNF16ShFVH5ggXdImtKEpPlq21nVmg&sig2=MZl3l_drGLAn_SffES5uzw"
+
+    
+    
+    
+    
+    @IBOutlet weak var table: UITableView!
+    var downloadManager = DownloadManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +32,7 @@ class DownloadTableVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        downloadManager.addDownloadFileForUrl(urlString: URL, withName: "1")
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,25 +42,29 @@ class DownloadTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1;
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    func tableView(_ tableView: UITableView,
+ numberOfRowsInSection section: Int) -> Int {
+        return downloadManager.downloadFiles.count;
+      //  return 1;
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+   
+    func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:CustomDownloadCell = tableView.dequeueReusableCell(withIdentifier: "downloadCell")as! CustomDownloadCell
+        
+        cell.manager = self.downloadManager
+        cell.index = indexPath.row
+        cell.showInfo()
+        return cell;
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

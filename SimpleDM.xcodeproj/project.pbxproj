@@ -8,22 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		222D436C1DE22C38000A79DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D436B1DE22C38000A79DD /* AppDelegate.swift */; };
-		222D436E1DE22C38000A79DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D436D1DE22C38000A79DD /* ViewController.swift */; };
 		222D43711DE22C38000A79DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222D436F1DE22C38000A79DD /* Main.storyboard */; };
 		222D43741DE22C38000A79DD /* SimpleDM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 222D43721DE22C38000A79DD /* SimpleDM.xcdatamodeld */; };
 		222D43761DE22C38000A79DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222D43751DE22C38000A79DD /* Assets.xcassets */; };
 		222D43791DE22C38000A79DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222D43771DE22C38000A79DD /* LaunchScreen.storyboard */; };
+		228C43F21DE3206B00CC964B /* CustomDownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C43F11DE3206B00CC964B /* CustomDownloadCell.swift */; };
+		228C43F41DE3241800CC964B /* DownloadTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C43F31DE3241800CC964B /* DownloadTableVC.swift */; };
+		228C43F71DE3278400CC964B /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C43F61DE3278400CC964B /* DownloadFile.swift */; };
+		228C43F91DE331A400CC964B /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228C43F81DE331A400CC964B /* DownloadManager.swift */; };
+		22FD9A281DE5CA33007DF0B7 /* DownloadSelf.png in Resources */ = {isa = PBXBuildFile; fileRef = 22FD9A261DE5CA33007DF0B7 /* DownloadSelf.png */; };
+		22FD9A291DE5CA33007DF0B7 /* PauseSelf.png in Resources */ = {isa = PBXBuildFile; fileRef = 22FD9A271DE5CA33007DF0B7 /* PauseSelf.png */; };
+		22FD9A2E1DE5CEFA007DF0B7 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD9A2D1DE5CEFA007DF0B7 /* HistoryTableVC.swift */; };
+		22FD9A301DE5CF25007DF0B7 /* CustomHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD9A2F1DE5CF25007DF0B7 /* CustomHistoryCell.swift */; };
+		22FD9A341DE5E013007DF0B7 /* AddFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD9A331DE5E013007DF0B7 /* AddFileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		222D43681DE22C38000A79DD /* SimpleDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		222D436B1DE22C38000A79DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		222D436D1DE22C38000A79DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		222D43701DE22C38000A79DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		222D43731DE22C38000A79DD /* SimpleDM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleDM.xcdatamodel; sourceTree = "<group>"; };
 		222D43751DE22C38000A79DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		222D43781DE22C38000A79DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		222D437A1DE22C38000A79DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		228C43F11DE3206B00CC964B /* CustomDownloadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDownloadCell.swift; sourceTree = "<group>"; };
+		228C43F31DE3241800CC964B /* DownloadTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTableVC.swift; sourceTree = "<group>"; };
+		228C43F61DE3278400CC964B /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
+		228C43F81DE331A400CC964B /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		22FD9A261DE5CA33007DF0B7 /* DownloadSelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownloadSelf.png; sourceTree = "<group>"; };
+		22FD9A271DE5CA33007DF0B7 /* PauseSelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseSelf.png; sourceTree = "<group>"; };
+		22FD9A2D1DE5CEFA007DF0B7 /* HistoryTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
+		22FD9A2F1DE5CF25007DF0B7 /* CustomHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHistoryCell.swift; sourceTree = "<group>"; };
+		22FD9A331DE5E013007DF0B7 /* AddFileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,47 @@
 		222D436A1DE22C38000A79DD /* SimpleDM */ = {
 			isa = PBXGroup;
 			children = (
+				22FD9A2C1DE5CEC2007DF0B7 /* HistoryVC */,
+				22FD9A2A1DE5CEA4007DF0B7 /* DovnloadVC */,
+				228C43F51DE3275F00CC964B /* DownloadModel */,
 				222D436B1DE22C38000A79DD /* AppDelegate.swift */,
-				222D436D1DE22C38000A79DD /* ViewController.swift */,
 				222D436F1DE22C38000A79DD /* Main.storyboard */,
 				222D43751DE22C38000A79DD /* Assets.xcassets */,
+				22FD9A261DE5CA33007DF0B7 /* DownloadSelf.png */,
+				22FD9A271DE5CA33007DF0B7 /* PauseSelf.png */,
 				222D43771DE22C38000A79DD /* LaunchScreen.storyboard */,
 				222D437A1DE22C38000A79DD /* Info.plist */,
 				222D43721DE22C38000A79DD /* SimpleDM.xcdatamodeld */,
 			);
 			path = SimpleDM;
+			sourceTree = "<group>";
+		};
+		228C43F51DE3275F00CC964B /* DownloadModel */ = {
+			isa = PBXGroup;
+			children = (
+				228C43F61DE3278400CC964B /* DownloadFile.swift */,
+				228C43F81DE331A400CC964B /* DownloadManager.swift */,
+			);
+			name = DownloadModel;
+			sourceTree = "<group>";
+		};
+		22FD9A2A1DE5CEA4007DF0B7 /* DovnloadVC */ = {
+			isa = PBXGroup;
+			children = (
+				228C43F31DE3241800CC964B /* DownloadTableVC.swift */,
+				228C43F11DE3206B00CC964B /* CustomDownloadCell.swift */,
+				22FD9A331DE5E013007DF0B7 /* AddFileVC.swift */,
+			);
+			name = DovnloadVC;
+			sourceTree = "<group>";
+		};
+		22FD9A2C1DE5CEC2007DF0B7 /* HistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				22FD9A2D1DE5CEFA007DF0B7 /* HistoryTableVC.swift */,
+				22FD9A2F1DE5CF25007DF0B7 /* CustomHistoryCell.swift */,
+			);
+			name = HistoryVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +148,11 @@
 					222D43671DE22C37000A79DD = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -127,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				222D43791DE22C38000A79DD /* LaunchScreen.storyboard in Resources */,
+				22FD9A281DE5CA33007DF0B7 /* DownloadSelf.png in Resources */,
 				222D43761DE22C38000A79DD /* Assets.xcassets in Resources */,
+				22FD9A291DE5CA33007DF0B7 /* PauseSelf.png in Resources */,
 				222D43711DE22C38000A79DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,8 +195,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				222D43741DE22C38000A79DD /* SimpleDM.xcdatamodeld in Sources */,
-				222D436E1DE22C38000A79DD /* ViewController.swift in Sources */,
+				228C43F91DE331A400CC964B /* DownloadManager.swift in Sources */,
+				228C43F41DE3241800CC964B /* DownloadTableVC.swift in Sources */,
+				22FD9A2E1DE5CEFA007DF0B7 /* HistoryTableVC.swift in Sources */,
 				222D436C1DE22C38000A79DD /* AppDelegate.swift in Sources */,
+				22FD9A341DE5E013007DF0B7 /* AddFileVC.swift in Sources */,
+				228C43F71DE3278400CC964B /* DownloadFile.swift in Sources */,
+				228C43F21DE3206B00CC964B /* CustomDownloadCell.swift in Sources */,
+				22FD9A301DE5CF25007DF0B7 /* CustomHistoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +362,7 @@
 				222D437F1DE22C38000A79DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -8,8 +8,50 @@
 
 import UIKit
 
-class DownloadCustomCell: UITableViewCell {
+class CustomDownloadCell: UITableViewCell {
 
+
+    var index: NSInteger?
+    var manager: DownloadManager?/// week
+    
+    
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var timeLable: UILabel!
+    @IBOutlet weak var mbLable: UILabel!
+    @IBOutlet weak var nameLable: UILabel!
+   
+    func changeEnable()
+    {
+         downloadButton.isEnabled = !downloadButton.isEnabled
+         pauseButton.isEnabled = !pauseButton.isEnabled
+    }
+    
+    @IBAction func pauseAction(_ sender: AnyObject) {
+        changeEnable()
+       manager?.pauseForIndex(index: index!)
+    }
+    @IBAction func downloadAction(_ sender: AnyObject) {
+        changeEnable()
+        manager?.startForIndex(index: index!)
+    }
+    func showInfo()
+    {
+        manager?.downloadInfoForIndex(index: index!,
+        progressBlocK: { (progress, progressStr) in
+            self.progressBar.progress = progress
+            self.mbLable.text = progressStr
+            },
+        isCompletedDownloadingBlock: { (isCompleted) in
+                print("%b", isCompleted)
+            })
+        { (time) in
+            self.timeLable.text = time;
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

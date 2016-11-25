@@ -8,6 +8,33 @@
 
 import UIKit
 
-class DownloadFile: NSObject {
+typealias downloadProgressBlock = (Float,String)->()
+typealias isCompletedDownloadingBlock = (Bool)->();
+typealias downloadTimeBlock = (String)->();
 
+
+class DownloadFile: NSObject {
+    
+    internal var downloadTask:URLSessionDownloadTask?;
+    
+    let titleName:String;
+    let url:URL;
+    
+    internal var dateStartDownload:NSDate?;
+    internal var dateCompletDownload:NSDate?;
+    internal var statusCompleted:String?;
+    
+    var progressBlock:downloadProgressBlock?;
+    var isCompletedDownloadingBlock:isCompletedDownloadingBlock?;
+    var downloadTimeBlock:downloadTimeBlock?;
+
+    
+    init (titleName:String, urlString:String)
+    {
+        self.titleName = titleName;
+        self.url = URL(string: urlString)!;
+    
+    }
+    
+   
 }
