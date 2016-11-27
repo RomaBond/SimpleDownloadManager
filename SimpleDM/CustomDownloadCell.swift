@@ -12,20 +12,20 @@ class CustomDownloadCell: UITableViewCell {
 
 
     var index: NSInteger?
-    var manager: DownloadManager?/// week
+    var manager: DownloadManager?
     
     
-    @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var downloadButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
-    @IBOutlet weak var timeLable: UILabel!
-    @IBOutlet weak var mbLable: UILabel!
-    @IBOutlet weak var nameLable: UILabel!
+    @IBOutlet weak var progressBar:     UIProgressView!
+    @IBOutlet weak var downloadButton:  UIButton!
+    @IBOutlet weak var pauseButton:     UIButton!
+    @IBOutlet weak var timeLable:       UILabel!
+    @IBOutlet weak var mbLable:         UILabel!
+    @IBOutlet weak var nameLable:       UILabel!
    
     func changeEnable()
     {
          downloadButton.isEnabled = !downloadButton.isEnabled
-         pauseButton.isEnabled = !pauseButton.isEnabled
+         pauseButton.isEnabled =    !pauseButton.isEnabled
     }
     
     @IBAction func pauseAction(_ sender: AnyObject) {
@@ -44,7 +44,7 @@ class CustomDownloadCell: UITableViewCell {
             self.mbLable.text = progressStr
             },
         isCompletedDownloadingBlock: { (isCompleted) in
-                print("%b", isCompleted)
+               self.mbLable.text = isCompleted ? "Ready" : "Fail"
             })
         { (time) in
             self.timeLable.text = time;

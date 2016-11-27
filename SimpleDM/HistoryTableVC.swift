@@ -8,18 +8,21 @@
 
 import UIKit
 
-class HistoryTableVC: UITableViewController {
+class HistoryTableVC: UIViewController ,UITableViewDataSource, UITableViewDelegate  {
 
+    @IBOutlet weak var table: UITableView!
+    var downloadInfo:[DownloadEntity] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDate()
+        self.table.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -27,69 +30,89 @@ class HistoryTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    func tableView(_ tableView: UITableView,
+          numberOfRowsInSection section: Int) -> Int {
+        //return 2;
+        return downloadInfo.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+  
+    func tableView(_ tableView: UITableView,
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")as!CustomHistoryCell
+        let downloadFileInfo = downloadInfo[indexPath.row]
+        
+        
+        let strDateStart = convertDateToString(date: downloadFileInfo.dateStart!)
+        let strDateFinished = convertDateToString(date: downloadFileInfo.dateFinished!)
+        
+        cell.nameLabel.text = downloadFileInfo.titleName
+        cell.dateStartLabel.text = strDateStart
+        cell.dateFinishedLabel.text = strDateFinished
+        cell.completedStatusLabel.text = downloadFileInfo.finishStaus
+        
         return cell
     }
-    */
+ 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    func tableView(_ tableView: UITableView,
+                 canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView,
+                    commit editingStyle: UITableViewCellEditingStyle,
+                     forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+           
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let downloadFileInfo = downloadInfo[indexPath.row]
+            context.delete(downloadFileInfo)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            do{
+                downloadInfo = try context.fetch(DownloadEntity.fetchRequest())
+            }
+            catch{
+                print("Error")
+            }
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    @IBAction func editAction(_ sender: UIBarButtonItem) {
+        let isEditing = !(self.table.isEditing)
+        self.table.setEditing(isEditing, animated: true)
+        sender.title = isEditing ? "Done" : "Edit"
+        sender.tintColor = isEditing ? UIColor.green : UIColor.red
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+       // MARK: Other Methods
+   
+    func getDate()
+    {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do{
+            downloadInfo = try context.fetch(DownloadEntity.fetchRequest())
+        }
+        catch{
+            print("Error")
+        }
+        
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func convertDateToString (date: NSDate) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let DateInFormat = dateFormatter.string(from: date as Date)
+        
+        return DateInFormat
     }
-    */
 
 }

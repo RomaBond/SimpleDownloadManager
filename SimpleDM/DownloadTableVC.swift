@@ -26,31 +26,23 @@ class DownloadTableVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        downloadManager.addDownloadFileForUrl(urlString: URL, withName: "1")
+        downloadManager.addDownloadFileForUrl(urlString: URL3, withName: "1")
+        downloadManager.addDownloadFileForUrl(urlString: URL, withName: "2")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1;
     }
 
     func tableView(_ tableView: UITableView,
  numberOfRowsInSection section: Int) -> Int {
         return downloadManager.downloadFiles.count;
-      //  return 1;
     }
 
    
@@ -66,25 +58,30 @@ class DownloadTableVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    
+     func tableView(_ tableView: UITableView,
+                 canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    */
+ 
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+     func tableView(_ tableView: UITableView,
+            commit editingStyle: UITableViewCellEditingStyle,
+             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            downloadManager.removeDownloadFileAtIndex(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+
+
+    @IBAction func edditAction(_ sender: UIBarButtonItem) {
+        let isEditing = !(self.table.isEditing)
+        self.table.setEditing(isEditing, animated: true)
+        sender.title = isEditing ? "Done" : "Edit"
+        sender.tintColor = isEditing ? UIColor.green : UIColor.red
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -110,5 +107,7 @@ class DownloadTableVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         // Pass the selected object to the new view controller.
     }
     */
+    
+  
 
 }

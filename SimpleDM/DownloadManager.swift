@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 
-
-class DownloadManager: NSObject, URLSessionDownloadDelegate {
+class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate{
     
 
   
-
+    // MARK: Default initialization
     
-
+     var downloadFiles = NSMutableArray()
+     let maxDownloadQuantity = 7
     
       lazy  var downloadSession:URLSession =
         {
@@ -27,8 +28,8 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
             
             let sessionConfig = URLSessionConfiguration.background(
                 withIdentifier:SessionProperties.identifier)
-            //sessionConfig.timeoutIntervalForRequest = 0
-           // sessionConfig.timeoutIntervalForResource = 0
+            sessionConfig.timeoutIntervalForRequest = 0
+            sessionConfig.timeoutIntervalForResource = 0
     
             return URLSession(configuration: sessionConfig,
                                    delegate: self,
@@ -38,17 +39,17 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
     
     
     
+    
   
-    var downloadFiles = NSMutableArray()
-    let maxDownloadQuantity = 7
   
-
+    // MARK: Creat Methods
+    
+    
     func addDownloadFileForUrl(urlString: String,
                       withName titleName: String)->Void
     {
         let file = DownloadFile(titleName: titleName, urlString: urlString)
         file.dateStartDownload = NSDate()
-       // let urlRequest = URLRequest(url:file.url)
         file.downloadTask = self.downloadSession.downloadTask(with: file.url);       downloadFiles.add(file)
     }
     
@@ -65,30 +66,54 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
         file.downloadTimeBlock = downloadTimeBlock
     }
     
+    
+    // MARK: CoreDate
+    
+    func seveIntoCoreDate(file: DownloadFile) -> () {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        
+        let task = DownloadEntity(context:context)
+        task.titleName = file.titleName;
+        task.dateStart = file.dateStartDownload;
+        task.dateFinished = file.dateCompletDownload;
+        task.finishStaus = file.statusCompleted;
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+   
+    
+    
+  // MARK: Action Methods
+    
     func startForIndex(index:NSInteger)->Void
     {
-        let file:DownloadFile =
-            self.downloadFiles.object(at: index) as! DownloadFile
+       if let file:DownloadFile =
+        self.downloadFiles.object(at: index) as? DownloadFile{
         
         file.downloadTask!.resume()
+        }
     }
     
     func pauseForIndex(index:NSInteger)->Void
     {
-        let file:DownloadFile =
-            self.downloadFiles.object(at: index) as! DownloadFile
+       if let file:DownloadFile =
+        self.downloadFiles.object(at: index) as? DownloadFile{
         
-        file.downloadTask?.suspend()
+        file.downloadTask!.suspend()
+        }
     }
     
     func removeDownloadFileAtIndex(index: NSInteger)
     {
-         let file:DownloadFile =
-            self.downloadFiles.object(at: index) as! DownloadFile
-        
+        if let file:DownloadFile =
+            self.downloadFiles.object(at: index) as? DownloadFile{
+         file.downloadTask!.cancel()
          downloadFiles.remove(file)
+        }
     }
 
+   // MARK: URLSession
     
     func urlSession(_ session: URLSession,
                          task: URLSessionTask,
@@ -96,7 +121,7 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
     {
         
         if (error != nil) {
-            print("Error")
+            print("Error session")
         }else{
             print("Successfully")
         }
@@ -108,7 +133,9 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
                      downloadTask: URLSessionDownloadTask,
   didFinishDownloadingTo location: URL)
     {
-        let file = getFileForTaskIdentifier(identifier: downloadTask.taskIdentifier)
+       
+        if let file = getFileForTaskIdentifier(identifier: downloadTask.taskIdentifier)
+        {
         var isSeccess = true
         
         let fileManager = FileManager.default
@@ -116,7 +143,7 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
         
         if fileManager.fileExists(atPath: destinationURLForFile.path)
         {
-            print(destinationURLForFile.path)
+             print(destinationURLForFile.path)
         }
         else{
             do {
@@ -126,9 +153,23 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
             }catch{
                 isSeccess = false
             }
-        }//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        file?.isCompletedDownloadingBlock!(isSeccess)
+            
+        }
         
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async
+            {
+                
+                DispatchQueue.main.async {
+                    file.isCompletedDownloadingBlock!(isSeccess)
+                }
+            
+        }
+        
+        
+        file.dateCompletDownload = NSDate();
+        file.statusCompleted = isSeccess ? "Successfully" : "Fail"
+        seveIntoCoreDate(file:file)
+        }
     }
 
     
@@ -143,8 +184,8 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
             totalBytesWritten: Int64,
     totalBytesExpectedToWrite: Int64){
     
-    let file = getFileForTaskIdentifier(identifier: downloadTask.taskIdentifier)
-        
+    if let file = getFileForTaskIdentifier(identifier: downloadTask.taskIdentifier)
+    {
     let progress = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
         
     let written:String = convertSizeToMB(size: totalBytesWritten)
@@ -152,7 +193,7 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
     
     let progressStr = String(format: "%@ Mb/%@ Mb",written, total)
         
-    let remainedTime:String = timeForDownloadFile(file: (file)!,
+    let remainedTime:String = timeForDownloadFile(file: file,
                                      totalBytesWritten: totalBytesWritten,
                              totalBytesExpectedToWrite: totalBytesExpectedToWrite)
         
@@ -161,9 +202,10 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
             {
             
             DispatchQueue.main.async {
-                file?.progressBlock!(progress,progressStr)
-                file?.downloadTimeBlock!(remainedTime)
+                file.progressBlock!(progress,progressStr)
+                file.downloadTimeBlock!(remainedTime)
             }
+        }
         }
        }
     
@@ -182,12 +224,12 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
     
     
     
-    
+    //MARK: Other Methods
     func convertSizeToMB(size: Int64)->String
     {
         let oneMB:Float = 1000000
         let resultInMB = Float(size)/oneMB
-        return String(format: "%f.2", resultInMB)
+        return String(format: "%.2f", resultInMB)
     }
     
     func getFileForTaskIdentifier(identifier: NSInteger)->DownloadFile?
@@ -217,9 +259,9 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
     func timeForDownloadFile(file:DownloadFile,
                 totalBytesWritten:Int64 ,
         totalBytesExpectedToWrite:Int64)->String    {
-        let timeInterval = 10//TimeInterval = NSDate.timeIntervalSince(file.dateStartDownload!)
         
-        let speed:NSInteger = NSInteger(totalBytesWritten)/NSInteger(timeInterval)
+        let timeInterval = NSDate().timeIntervalSince(file.dateStartDownload! as Date)
+        let speed:NSInteger = NSInteger(totalBytesWritten)/Int (timeInterval)
         
         let remainedBytes:NSInteger = totalBytesExpectedToWrite - totalBytesWritten
         let remainedTimeSecond:NSInteger =  remainedBytes / NSInteger(speed)

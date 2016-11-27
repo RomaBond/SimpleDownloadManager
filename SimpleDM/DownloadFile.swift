@@ -17,8 +17,8 @@ class DownloadFile: NSObject {
     
     internal var downloadTask:URLSessionDownloadTask?;
     
-    let titleName:String;
-    let url:URL;
+    let titleName:String!;
+    let url:URL!;
     
     internal var dateStartDownload:NSDate?;
     internal var dateCompletDownload:NSDate?;
