@@ -114,21 +114,7 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate{
     }
 
    // MARK: URLSession
-    
-    func urlSession(_ session: URLSession,
-                         task: URLSessionTask,
-   didCompleteWithError error: Error?)
-    {
         
-        if (error != nil) {
-            print("Error session")
-        }else{
-            print("Successfully")
-        }
-        
-        
-    }
-    
         func urlSession(_ session: URLSession,
                      downloadTask: URLSessionDownloadTask,
   didFinishDownloadingTo location: URL)

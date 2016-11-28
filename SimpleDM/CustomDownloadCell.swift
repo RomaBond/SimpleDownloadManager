@@ -30,7 +30,7 @@ class CustomDownloadCell: UITableViewCell {
     
     @IBAction func pauseAction(_ sender: AnyObject) {
         changeEnable()
-       manager?.pauseForIndex(index: index!)
+        manager?.pauseForIndex(index: index!)
     }
     @IBAction func downloadAction(_ sender: AnyObject) {
         changeEnable()
