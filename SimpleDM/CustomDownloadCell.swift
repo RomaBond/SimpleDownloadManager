@@ -48,6 +48,8 @@ class CustomDownloadCell: UITableViewCell {
             },
         isCompletedDownloadingBlock: { (isCompleted) in
                self.mbLable.text = isCompleted ? "Ready" : "Fail"
+               self.downloadButton.isEnabled = false
+               self.pauseButton.isEnabled = false
             })
         { (time) in
             self.timeLable.text = time;
