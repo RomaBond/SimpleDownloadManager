@@ -13,7 +13,7 @@ class CustomDownloadCell: UITableViewCell {
 
     var index: NSInteger?
     var manager: DownloadManager?
-    
+
     
     @IBOutlet weak var progressBar:     UIProgressView!
     @IBOutlet weak var downloadButton:  UIButton!
@@ -22,6 +22,10 @@ class CustomDownloadCell: UITableViewCell {
     @IBOutlet weak var mbLable:         UILabel!
     @IBOutlet weak var nameLable:       UILabel!
    
+    
+   
+    
+    
     func changeEnable()
     {
          downloadButton.isEnabled = !downloadButton.isEnabled
@@ -38,9 +42,7 @@ class CustomDownloadCell: UITableViewCell {
     }
     func showInfo()
     {
-        let downloadFile:DownloadFile = manager?.downloadFiles[index!] as! DownloadFile
-        
-        nameLable.text = downloadFile.titleName
+     
         manager?.downloadInfoForIndex(index: index!,
         progressBlocK: { (progress, progressStr) in
             self.progressBar.progress = progress
@@ -59,6 +61,7 @@ class CustomDownloadCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 

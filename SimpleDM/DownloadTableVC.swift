@@ -49,10 +49,23 @@ class DownloadTableVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:CustomDownloadCell = tableView.dequeueReusableCell(withIdentifier: "downloadCell")as! CustomDownloadCell
+       let cell:CustomDownloadCell = tableView.dequeueReusableCell(withIdentifier: "downloadCell")as! CustomDownloadCell
         
-        cell.manager = self.downloadManager
+       let file = downloadManager.downloadFiles[indexPath.row]as!DownloadFile
+        
+       if (!file.isInit)
+       {
+        cell.nameLable.text = file.titleName
+        cell.progressBar.progress = 0
+        cell.timeLable.text = "Time"
+        cell.mbLable.text = "MB"
+        cell.downloadButton.isEnabled = true
+        cell.pauseButton.isEnabled = false
+        file.isInit = true
+       }
+        
         cell.index = indexPath.row
+        cell.manager = self.downloadManager
         cell.showInfo()
         return cell;
     }
@@ -69,9 +82,12 @@ class DownloadTableVC: UIViewController, UITableViewDataSource, UITableViewDeleg
      func tableView(_ tableView: UITableView,
             commit editingStyle: UITableViewCellEditingStyle,
              forRowAt indexPath: IndexPath) {
+        
+       
         if editingStyle == .delete {
             downloadManager.removeDownloadFileAtIndex(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+           
         }
     }
 

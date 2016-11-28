@@ -20,9 +20,11 @@ class DownloadFile: NSObject {
     let titleName:String!;
     let url:URL!;
     
-    internal var dateStartDownload:NSDate?;
-    internal var dateCompletDownload:NSDate?;
-    internal var statusCompleted:String?;
+     var dateStartDownload:NSDate?;
+     var dateCompletDownload:NSDate?;
+     var statusCompleted:String?;
+    
+     var isInit = false
     
     var progressBlock:downloadProgressBlock?;
     var isCompletedDownloadingBlock:isCompletedDownloadingBlock?;

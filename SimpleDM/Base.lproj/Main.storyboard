@@ -23,10 +23,10 @@
                                 <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="downloadCell" rowHeight="106" id="bVf-bh-8Yj" customClass="CustomDownloadCell" customModule="SimpleDM" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="1000" height="106"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVf-bh-8Yj" id="H77-lx-wxO">
-                                            <frame key="frameInset" width="1000" height="106"/>
+                                            <frame key="frameInset" width="375" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cYC-c6-pB8"/>

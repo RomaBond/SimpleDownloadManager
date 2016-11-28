@@ -76,8 +76,6 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate{
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
    
-    
-    
   // MARK: Action Methods
     
     func startForIndex(index:NSInteger)->Void
