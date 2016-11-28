@@ -28,8 +28,8 @@ class DownloadManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate{
             
             let sessionConfig = URLSessionConfiguration.background(
                 withIdentifier:SessionProperties.identifier)
-//            sessionConfig.timeoutIntervalForRequest = 0
-//            sessionConfig.timeoutIntervalForResource = 0
+            sessionConfig.timeoutIntervalForRequest = 0
+            sessionConfig.timeoutIntervalForResource = 0
     
             return URLSession(configuration: sessionConfig,
                                    delegate: self,

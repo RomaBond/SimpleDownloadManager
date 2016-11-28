@@ -27,18 +27,7 @@ class AddFileVC: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         urlField.becomeFirstResponder()
     }
-    
-    func isCorrectFill() -> (Bool)
-    {
-        var isCorect = true;
-        if (urlField.text!.isEqual("") ||
-            nameField.text!.isEqual(""))
-        {
-            isCorect = false
-        }
-        return isCorect
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,11 +37,19 @@ class AddFileVC: UIViewController, UITextFieldDelegate {
     {
         if (textField.isEqual(urlField))
         {
-            nameField .becomeFirstResponder()
+            if(validUrl())
+            {
+                self.changeUrlLable.textColor = UIColor.green
+                nameField .becomeFirstResponder()
+            }
+            else
+            {
+                self.changeUrlLable.textColor = UIColor.red
+            }
         }
         else
         {
-            if (isCorrectFill())
+            if (validName())
             {
                 nameField.resignFirstResponder()
                 doneButton.isEnabled = true
@@ -88,6 +85,27 @@ class AddFileVC: UIViewController, UITextFieldDelegate {
         _ = self.navigationController?.popToViewController(self.downloadTableVC!, animated: true)
     }
     
+    func validUrl () -> Bool {
+        
+        if let urlString = urlField.text {
+            
+            if let url = NSURL(string: urlString) {
+               
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+           
+        }
+        return false
+    }
+    func validName ()->Bool
+    {
+        let isValide = !nameField.text!.isEqual("")
+        if(isValide)
+        {
+            changeNameLable.textColor = UIColor.green
+        }
+        return isValide
+    }
   
 
    }
