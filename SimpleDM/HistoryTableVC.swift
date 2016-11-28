@@ -82,7 +82,7 @@ class HistoryTableVC: UIViewController ,UITableViewDataSource, UITableViewDelega
             }
             
             tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
+    
             
         }
     }
