@@ -10,7 +10,7 @@ import UIKit
 //import RxCocoa
 
 
-class AddFileVC: UIViewController {
+class AddFileVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameField:       UITextField!
     @IBOutlet weak var urlField:        UITextField!
@@ -18,57 +18,76 @@ class AddFileVC: UIViewController {
     @IBOutlet weak var changeUrlLable:  UILabel!
     @IBOutlet weak var changeNameLable: UILabel!
   
-    
+    var downloadTableVC:DownloadTableVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//       let nameValid = nameField.rx_text
-//           .map {$0.charactets.count>=1}
-//           .shareReplay(1)
-//        
-//        let urlValid = urlField.rx_text
-//            .map {$0.charactets.count>=1}
-//            .shareReplay(1)
-       
-      //  let everyThingValid = Observate.combine
-        
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        urlField.becomeFirstResponder()
+    }
+    
+    func isCorrectFill() -> (Bool)
+    {
+        var isCorect = true;
+        if (urlField.text!.isEqual("") ||
+            nameField.text!.isEqual(""))
+        {
+            isCorect = false
+        }
+        return isCorect
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-//    -(void)addDownloadFile
-//    {
-//    NSInteger maxQuantity = self.mainViewController.DM.maxDownloadQuantity ;
-//    NSInteger quantityNow = [self.mainViewController.DM.downloadFiles count];
-//    
-//    if(quantityNow <maxQuantity ){
-//    [self.mainViewController.DM addDownloadFileForUrl:self.url.text
-//    withName:self.titleName.text];
-//    [self.mainViewController.table reloadData];
-//    }
-//    else
-//    {
-//    UIAlertController *alertController = [UIAlertController
-//    alertControllerWithTitle:@"Max quantity"
-//    message:@"Remove completed downloads"
-//    preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK"
-//    style:UIAlertActionStyleDefault
-//    handler:nil];
-//    [alertController addAction:ok];
-//    
-//    [self presentViewController:alertController
-//    animated:YES
-//    completion:nil];
-//    
-//    }
-//    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        if (textField.isEqual(urlField))
+        {
+            nameField .becomeFirstResponder()
+        }
+        else
+        {
+            if (isCorrectFill())
+            {
+                nameField.resignFirstResponder()
+                doneButton.isEnabled = true
+            }
+        }
+        return true
+    }
 
+
+    func addDownloadFile() ->()
+    {
+      let manager = downloadTableVC?.downloadManager
+        
+      let maxQuantity = manager?.maxDownloadQuantity
+      let quantityNow = manager?.downloadFiles.count
+      
+        if (quantityNow! < maxQuantity!)
+        {
+         manager?.addDownloadFileForUrl(urlString: urlField.text!,
+                                         withName: nameField.text!)
+         downloadTableVC?.table.reloadData()
+        }
+        else
+        {
+         print("Remove completed downloads")
+        }
+        
+    }
+    
+
+    @IBAction func doneAction(_ sender: UIBarButtonItem) {
+        addDownloadFile()
+        _ = self.navigationController?.popToViewController(self.downloadTableVC!, animated: true)
+    }
+    
+  
 
    }

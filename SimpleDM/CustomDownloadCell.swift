@@ -38,6 +38,9 @@ class CustomDownloadCell: UITableViewCell {
     }
     func showInfo()
     {
+        let downloadFile:DownloadFile = manager?.downloadFiles[index!] as! DownloadFile
+        
+        nameLable.text = downloadFile.titleName
         manager?.downloadInfoForIndex(index: index!,
         progressBlocK: { (progress, progressStr) in
             self.progressBar.progress = progress
